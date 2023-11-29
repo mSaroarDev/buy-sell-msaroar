@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 export async function POST(req, { params }) {
   try {
     const formData = await req.json();
-    console.log(formData);
 
     const ad = await prisma.Ads.update({
       where: { id: parseInt(params.id) },

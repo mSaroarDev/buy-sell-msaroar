@@ -47,7 +47,7 @@ export default function EditProfileForm({ data, name }) {
       setImgUrl(res2.url);
       return res2.url;
     } else {
-      return "";
+      return profile_image;
     }
   };
 

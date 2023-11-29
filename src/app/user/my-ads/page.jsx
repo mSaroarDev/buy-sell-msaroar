@@ -1,4 +1,4 @@
-import EditModal from "@/components/sub-components/EditModal";
+import EditModal from "@/components/sub-components/DeleteModal";
 import MyAdsCard from "@/components/sub-components/MyAdsCard";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/db";

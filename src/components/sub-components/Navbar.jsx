@@ -75,12 +75,12 @@ export default function Navbar() {
                 All ADS
               </Link>
               <Link
-                href={"/login"}
+                href={"/user/my-profile"}
                 className="flex items-center gap-x-2 text-white font-medium text-[14px] uppercase"
               >
                 Login
               </Link>
-              <Link href={"/login"} className="btn-1 ml-6">
+              <Link href={"/user/create-ads"} className="btn-1 ml-6">
                 Post Your ADS
               </Link>
             </div>

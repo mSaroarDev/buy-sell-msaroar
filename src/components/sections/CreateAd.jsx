@@ -4,8 +4,17 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Spinner from "../sub-components/spinner/Spinner";
+import EditProfileButton from "../sub-components/EditProfileButton";
 
-export default function CreateAdPage({ data, name }) {
+export default function CreateAdPage({ data}) {
+
+  const {
+    division,
+    district,
+    sub_district,
+    address,
+  } = data;
+
   const [imgUrl, setImgUrl] = useState();
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -120,7 +129,9 @@ export default function CreateAdPage({ data, name }) {
         </div>
         <hr />
         {/* form */}
-        <form onSubmit={formik.handleSubmit} className="mt-5">
+
+        {
+          division === null || district === null || sub_district === null || address === null || division === "" || district === "" || sub_district === "" || address === "" ? <EditProfileButton /> : <form onSubmit={formik.handleSubmit} className="mt-5">
           <div className="form grid grid-cols-12 gap-5">
             <div className="col-span-12">
               <label htmlFor="name" className="font-regular text-gray-500">
@@ -471,10 +482,13 @@ export default function CreateAdPage({ data, name }) {
               type="submit"
               className="btn-1 mt-5"
             >
-              Update Profile
+              Create Ad
             </button>
           </div>
         </form>
+        }
+
+        
 
         {/* form */}
       </div>
