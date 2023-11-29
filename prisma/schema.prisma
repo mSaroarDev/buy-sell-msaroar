@@ -1,0 +1,112 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Developer {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  phone_no   String
+  password   String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}
+
+model Super_Admin {
+  id            Int      @id @default(autoincrement())
+  name          String
+  email         String   @unique
+  phone_no      String
+  address       String   @db.MediumText
+  profile_image String
+  password      String
+  role          String   @default("SuperAdmin")
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now()) @updatedAt
+
+  Categories Categories[]
+}
+
+model User {
+  id         Int      @id @unique @default(autoincrement())
+  name       String
+  email      String   @unique
+  otp        Int      @default(0)
+  password   String   @default("e10adc3949ba59abbe56e057f20f883e")
+  role       String   @default("User")
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  User_Profile User_Profile?
+  Ads          Ads[]
+}
+
+model User_Profile {
+  id            Int      @id @default(autoincrement())
+  email         String?  @unique
+  gender        String?
+  dob           String?
+  mobile_no     String?
+  division      String?
+  district      String?
+  sub_district  String?
+  address       String?  @db.MediumText
+  profile_image String?
+  user_id       Int      @unique
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now()) @updatedAt
+
+  User User @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Categories {
+  id             Int      @id @default(autoincrement())
+  category_name  String
+  category_image String
+  created_by     Int
+  created_at     DateTime @default(now())
+  updated_at     DateTime @default(now()) @updatedAt
+
+  Super_Admin Super_Admin @relation(fields: [created_by], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Ads         Ads[]
+}
+
+model Ads {
+  id            Int    @id @default(autoincrement())
+  ad_priority   String @default("Regular")
+  status        String @default("Not Sold")
+  product_name  String @db.MediumText
+  description   String @db.LongText
+  price         String
+  edition       String
+  condition     String
+  authenticity  String
+  features      String
+  negotible     String
+  brand         String
+  model         String
+  category_id   Int
+  product_image String
+
+  saler_name String
+  contact_no String
+  division   String
+  district   String
+  upazilla   String
+
+  created_by Int
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  User       User       @relation(fields: [created_by], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  Categories Categories @relation(fields: [category_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}

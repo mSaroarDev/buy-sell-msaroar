@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+    @apply w-full max-w-6xl mx-auto
+}
+
+.btn-1{
+    @apply bg-[#FFC800] text-[#673500] p-[14px] rounded-[4px] text-[14px] uppercase font-bold; 
+}
+
+.btn-full {
+    @apply bg-[#FFC800] text-[#673500] p-[10px] px-5 rounded-full text-[14px] uppercase font-bold
+}
+
+.category__card:hover .arrow{
+    @apply block
+}
+
+/* .active-userSideLink:hover {
+   @apply border-brandColor2/20 bg-brandColor2/10 text-black
+} */
+
+.sidebar-links {
+    @apply flex items-center gap-x-2 px-4 py-2 rounded-md border-s-[3px] border-white duration-300
+ }
+
+.isActive-userSideLink {
+    @apply border-brandColor2 bg-brandColor2/70 text-white
+ }
+
+ 

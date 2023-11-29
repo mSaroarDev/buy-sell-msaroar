@@ -1,0 +1,55 @@
+const data = [
+  {
+    id: 1,
+    image: "/fitted.jpg",
+    name: "Samsung Galaxy S21 8/256 Gb Duel",
+    condition: "Used",
+    district: "Rajshahi",
+    category: "Mobiles",
+    price: 10518,
+    posted_on: "1 min",
+  },
+  {
+    id: 2,
+    image: "/fitted.jpg",
+    name: "Samsung Galaxy S21 8/256 Gb Duel",
+    condition: "Used",
+    district: "Rajshahi",
+    category: "Mobiles",
+    price: 10518,
+    posted_on: "1 min",
+  },
+
+  {
+    id: 3,
+    image: "/fitted.jpg",
+    name: "Samsung Galaxy S21 8/256 Gb Duel",
+    condition: "Used",
+    district: "Rajshahi",
+    category: "Mobiles",
+    price: 10518,
+    posted_on: "1 min",
+  },
+  {
+    id: 3,
+    image: "/fitted.jpg",
+    name: "Samsung Galaxy S21 8/256 Gb Duel",
+    condition: "Used",
+    district: "Rajshahi",
+    category: "Mobiles",
+    price: 10518,
+    posted_on: "1 min",
+  },
+  {
+    id: 4,
+    image: "/fitted.jpg",
+    name: "Samsung Galaxy S21 8/256 Gb Duel",
+    condition: "Used",
+    district: "Rajshahi",
+    category: "Mobiles",
+    price: 10518,
+    posted_on: "1 min",
+  },
+];
+
+export default data;
