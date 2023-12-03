@@ -51,7 +51,7 @@ export default function UserNavbar({ data }) {
                 </li> */}
                   <li>
                     <button
-                      onClick={() => logout()}
+                      onClick={() => logout({ callbackUrl: '/login' })}
                       className="flex items-center gap-2"
                     >
                       <svg

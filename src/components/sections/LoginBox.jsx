@@ -61,7 +61,7 @@ export default function LoginBox() {
             <div className="divider my-5">OR</div>
             <div className="social__login flex flex-col gap-y-3">
               <button
-                onClick={() => signIn("google", { callbackUrl: '/user/my-profile' })}
+                onClick={() => signIn("google", { callbackUrl: '/logged' })}
                 className="btn flex items-center justify-center gap-y-2"
               >
                 <Image

@@ -267,7 +267,7 @@ export default function EditProfileForm({ data, name }) {
                       width={80}
                       height={80}
                       alt={"name"}
-                      className="rounded-full"
+                      className="rounded-full object-cover"
                     />
                   ) : (
                     <Image
@@ -275,7 +275,7 @@ export default function EditProfileForm({ data, name }) {
                       width={80}
                       height={80}
                       alt={"name"}
-                      className="rounded-full"
+                      className="rounded-full object-cover"
                     />
                   )}
                 </div>

@@ -13,6 +13,7 @@ export const authOptions = {
 
   pages: {
     signIn: "/login",
+    signOut: '/login',
   },
 
   callbacks: {

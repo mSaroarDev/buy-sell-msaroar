@@ -1,5 +1,6 @@
 import UserNavServerComp from "@/components/sub-components/UserNavServer";
 import UserSidebar from "@/components/sub-components/UserSidebar";
+import SASidebar from "@/components/sub-components/super-admin/Sidebar";
 
 export const metadata = {
   title: "Super Admin - Dashboard",
@@ -9,7 +10,14 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <>
-      <div className="grid grid-cols-12"></div>
+      <div className="w-full flex items-start justify-start flex-nowrap">
+        <div className="sidebar hidden lg:block">
+          <SASidebar />
+        </div>
+        <div className="lg:ml-[250px] p-5 min-h-screen w-full bg-[#f7f7f7]">
+          {children}
+        </div>
+      </div>
     </>
   );
 }

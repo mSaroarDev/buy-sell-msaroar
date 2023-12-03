@@ -6,6 +6,8 @@ import TopLoader from "@/components/sub-components/TopLoader";
 const HindSiliguri = Hind_Siliguri({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata = {
