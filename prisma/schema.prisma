@@ -10,31 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Developer {
-  id         Int      @id @default(autoincrement())
-  name       String
-  email      String   @unique
-  phone_no   String
-  password   String
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now()) @updatedAt
-}
-
-model Super_Admin {
-  id            Int      @id @default(autoincrement())
-  name          String
-  email         String   @unique
-  phone_no      String
-  address       String   @db.MediumText
-  profile_image String
-  password      String
-  role          String   @default("SuperAdmin")
-  created_at    DateTime @default(now())
-  updated_at    DateTime @default(now()) @updatedAt
-
-  Categories Categories[]
-}
-
 model User {
   id         Int      @id @unique @default(autoincrement())
   name       String
@@ -47,6 +22,7 @@ model User {
 
   User_Profile User_Profile?
   Ads          Ads[]
+  Categories   Categories[]
 }
 
 model User_Profile {
@@ -75,8 +51,8 @@ model Categories {
   created_at     DateTime @default(now())
   updated_at     DateTime @default(now()) @updatedAt
 
-  Super_Admin Super_Admin @relation(fields: [created_by], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  Ads         Ads[]
+  User User  @relation(fields: [created_by], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Ads  Ads[]
 }
 
 model Ads {

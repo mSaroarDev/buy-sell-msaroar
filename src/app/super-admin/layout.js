@@ -14,8 +14,11 @@ export default function Layout({ children }) {
         <div className="sidebar hidden lg:block">
           <SASidebar />
         </div>
-        <div className="lg:ml-[250px] p-5 min-h-screen w-full bg-[#f7f7f7]">
-          {children}
+        <div className="lg:ml-[250px] min-h-screen w-full bg-[#f7f7f7]">
+          <div className="bg-[#E9327C] px-5 py-1 my-1 w-fit text-white rounded-r-full">
+            Super Admin
+          </div>
+          <div className="p-5">{children}</div>
         </div>
       </div>
     </>

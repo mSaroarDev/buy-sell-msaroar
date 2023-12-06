@@ -1,12 +1,23 @@
+import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/db";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  try {
-    const formData = await req.json();
-    const { myRole, category_name, category_image, created_by } = formData;
+  const session = await getServerSession(authOptions);
 
-    if (myRole !== "SuperAdmin") {
+  const userInfo = await prisma.User.findUnique({
+    where: {
+      email: session?.user?.email,
+    },
+  });
+  console.log(userInfo);
+
+  const formData = await req.json();
+  const { category_name, category_image } = formData;
+
+  try {
+    if (userInfo.role !== "SuperAdmin") {
       return NextResponse.json(
         { status: "failed", data: "user not permitted" },
         { status: 406 }
@@ -16,7 +27,7 @@ export async function POST(req) {
         data: {
           category_name: category_name,
           category_image: category_image,
-          created_by: parseInt(created_by),
+          created_by: userInfo.id,
         },
       });
 

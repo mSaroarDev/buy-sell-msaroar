@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Ad({ data }) {
+
   return (
     <>
       <Link href={`/ads?category=${data?.category}&ad-id=${data?.id}`}>

@@ -75,7 +75,7 @@ export default function Navbar() {
                 All ADS
               </Link>
               <Link
-                href={"/user/my-profile"}
+                href={"/login"}
                 className="flex items-center gap-x-2 text-white font-medium text-[14px] uppercase"
               >
                 Login
