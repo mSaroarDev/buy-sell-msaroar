@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Spinner from "../sub-components/spinner/Spinner";
 import EditProfileButton from "../sub-components/EditProfileButton";
 
-export default function CreateAdPage({ data}) {
+export default function CreateAdPage({ data, categories }) {
 
   const {
     division,
@@ -400,7 +400,11 @@ export default function CreateAdPage({ data}) {
                 <option value="" disabled>
                   Select Category
                 </option>
-                <option value={22}>Category 1</option>
+                {categories && categories.map((category) => {
+                  return (
+                    <option key={category?.id} value={category?.id}>{category?.category_name}</option>
+                  )
+                })}
               </select>
             </div>
 

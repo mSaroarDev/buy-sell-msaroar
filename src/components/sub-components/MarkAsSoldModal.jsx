@@ -4,6 +4,7 @@ import Spinner from "./spinner/Spinner";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
+import Image from "next/image";
 
 export default function MarkAsSoldModal({ data }) {
   const router = useRouter();
@@ -54,6 +55,7 @@ export default function MarkAsSoldModal({ data }) {
         </form>
         <form onSubmit={formik.handleSubmit}>
           <div className="flex flex-col items-center justify-center gap-3">
+            <Image src="/doneicon.webp" height={150} width={150} alt="Done?" />
             <h3 className="text-xl font-bold text-center mt-7">
               The product{" "}
               <span className="text-brandColor2">{data?.product_name}</span>{" "}

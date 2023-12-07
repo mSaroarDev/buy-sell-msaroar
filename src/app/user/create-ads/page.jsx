@@ -13,9 +13,12 @@ export default async function CreateAds() {
     },
   });
 
+  // get categories
+  const categories = await prisma.Categories.findMany()
+
   return (
     <>
-      <CreateAdPage data={data} />
+      <CreateAdPage data={data} categories={categories} />
     </>
   );
 }
