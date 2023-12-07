@@ -42,7 +42,7 @@ export default function NewCategoryForm() {
       category_name: "",
       category_image: "",
     },
-    onSubmit: async (values) => {
+    onSubmit: async (values, { resetForm }) => {
       setLoading(true);
       const data = await imageUpload();
       values.category_image = data;
@@ -59,10 +59,9 @@ export default function NewCategoryForm() {
           }
         );
 
-        console.log(res);
-
         if (res.status === 201) {
           setLoading(false);
+          resetForm();
           showSuccess("New category added.");
           setSelectedImage(null);
           router.refresh();
