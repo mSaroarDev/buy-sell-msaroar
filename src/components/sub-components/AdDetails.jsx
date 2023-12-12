@@ -2,6 +2,7 @@ import Image from "next/image";
 import saler from "public/saler.svg";
 import call from "public/call.svg";
 import formatTimeAgo from "@/utils/convert_date";
+import Link from "next/link";
 // import convert_to_currency_format from '@/utils/convert_to_currency'
 
 export default function AdDetails({ data }) {
@@ -116,6 +117,13 @@ export default function AdDetails({ data }) {
 
                     <hr />
                   </div>
+                </div>
+
+                {/* external ads */}
+                <div className="w-full h-full p-2 relative">
+                  <a href="http://teamsaroar.pw">
+                    <Image src="/external-ad.png" fill className="absolute object-contain top-[20px]" alt="External Ad"/>
+                  </a>
                 </div>
               </div>
             </div>
