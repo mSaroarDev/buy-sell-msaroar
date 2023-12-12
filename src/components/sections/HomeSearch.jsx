@@ -1,5 +1,4 @@
 import Image from "next/image";
-import searchIcon from 'public/search.svg';
 
 export default function HomeSearch() {
   return (
@@ -18,7 +17,7 @@ export default function HomeSearch() {
                 type="submit"
                 className="absolute right-0 top-0 m-1 bottom-0 bg-[#FFC800] text-[#673500] px-8 rounded-full text-[14px] uppercase font-bold flex items-center gap-x-2"
               >
-                <Image src={searchIcon} height={20} width={20} alt="Search" />
+                <Image src="/search.svg" height={20} width={20} alt="Search" />
                 Search
               </button>
             </div>
