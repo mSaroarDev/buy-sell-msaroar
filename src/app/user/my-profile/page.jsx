@@ -6,7 +6,7 @@ import prisma from "@/lib/db";
 export default async function MyProfile(){
 
   const session = await getServerSession(authOptions);
-  console.log(session);
+  // console.log(session);
 
   // get user data
   const data = await prisma.User_Profile.findUnique({

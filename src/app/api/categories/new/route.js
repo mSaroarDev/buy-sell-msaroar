@@ -11,7 +11,7 @@ export async function POST(req) {
       email: session?.user?.email,
     },
   });
-  console.log(userInfo);
+  // console.log(userInfo);
 
   const formData = await req.json();
   const { category_name, category_image } = formData;

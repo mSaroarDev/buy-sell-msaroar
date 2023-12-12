@@ -6,7 +6,7 @@ import prisma from "@/lib/db";
 export default async function SAAds() {
   const ads = await prisma.Ads.findMany();
 
-  console.log(ads);
+  // console.log(ads);
 
   return (
     <>

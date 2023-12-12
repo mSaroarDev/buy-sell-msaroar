@@ -1,8 +1,12 @@
-import data from "@/data/categories";
-import Image from "next/image";
+import prisma from "@/lib/db";
 import Link from "next/link";
+import SideCategoryCard from "./SideCategoryCard";
 
-export default function AdspageSidebar() {
+export default async function AdspageSidebar() {
+
+  const categories = await prisma.categories.findMany()
+  // console.log(categories);
+
   return (
     <>
       <div>
@@ -12,19 +16,11 @@ export default function AdspageSidebar() {
           </h3>
           <div className="categories flex flex-col gap-y-2 p-4">
             <ul>
-              {data &&
-                data?.map((item) => {
+              {categories &&
+                categories?.map((item) => {
                   return (
-                    <Link key={item.id} href={item.link}>
-                      <li className="flex items-center gap-2 w-full p-2 hover:bg-brandColor2/10 rounded-md">
-                        <Image
-                          src={item.image}
-                          height={14}
-                          width={14}
-                          alt="item.name"
-                        />
-                        {item.name} (100)
-                      </li>
+                    <Link key={item?.id} href={"/"}>
+                      <SideCategoryCard data={item} />
                     </Link>
                   );
                 })}

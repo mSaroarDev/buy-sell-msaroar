@@ -3,9 +3,15 @@ import AdspageSidebar from "@/components/sub-components/Adspage-Sidebar";
 import Navbar from "@/components/sub-components/Navbar";
 import Image from "next/image";
 import searchIcon from "public/search.svg";
-import data from "@/data/product";
+import prisma from "@/lib/db";
 
-export default function ExploreAds() {
+export default async function ExploreAds() {
+  const ads = await prisma.Ads.findMany({
+    where: {
+      status: "Not Sold",
+    },
+  });
+
   return (
     <div className="bg-[#f7f7f7] min-h-screen w-full">
       <Navbar />
@@ -45,8 +51,8 @@ export default function ExploreAds() {
 
               {/* ads area starts */}
               <div className="ads p-5 flex flex-col gap-4 border-l-[1px] border-slate-200">
-                {data &&
-                  data.map((ad) => {
+                {ads &&
+                  ads.map((ad) => {
                     return (
                       <div key={ad.id}>
                         <Ad data={ad} />
@@ -59,8 +65,6 @@ export default function ExploreAds() {
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 }
