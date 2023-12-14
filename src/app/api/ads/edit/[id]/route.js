@@ -25,6 +25,7 @@ export async function POST(req, { params }) {
         division: formData.division,
         district: formData.district,
         upazilla: formData.upazilla,
+        keywords: formData.keywords,
       },
     });
 

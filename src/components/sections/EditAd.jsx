@@ -491,7 +491,7 @@ export default function EditAdPage({ adDetails }) {
               type="submit"
               className="btn-1 mt-5"
             >
-              Update Profile
+              Update
             </button>
           </div>
         </form>

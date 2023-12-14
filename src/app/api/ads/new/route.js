@@ -44,6 +44,7 @@ export async function POST(req) {
           division: formData.division,
           district: formData.district,
           upazilla: formData.upazilla,
+          keywords: formData.keywords,
           created_by: data.user_id,
           // created_by: 14,
         },

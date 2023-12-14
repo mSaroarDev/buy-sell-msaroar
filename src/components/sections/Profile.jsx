@@ -30,13 +30,13 @@ export default function Profile({ data, name }) {
       ) : (
         <div className="flex gap-5 mt-5">
           <div>
-            <div className="w-[120px] h-[120px] rounded-full overflow-hidden ring-2 ring-brandColor object-cover">
+            <div className="w-[120px] h-[120px] rounded-full overflow-hidden ring-2 ring-brandColor relative">
               <Image
                 src={profile_image}
                 width={120}
                 height={120}
                 alt={name}
-                className="object-cover"
+                className="absolute inset-0 object-cover"
               />
             </div>
           </div>
