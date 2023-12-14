@@ -33,8 +33,7 @@ export default function Profile({ data, name }) {
             <div className="w-[120px] h-[120px] rounded-full overflow-hidden ring-2 ring-brandColor relative">
               <Image
                 src={profile_image}
-                width={120}
-                height={120}
+                fill
                 alt={name}
                 className="absolute inset-0 object-cover"
               />

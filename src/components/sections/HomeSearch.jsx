@@ -20,7 +20,7 @@ export default function HomeSearch() {
   };
   return (
     <>
-      <div className="bg-[#149777]">
+      <div className="bg-brandColor2">
         <main className="pt-24 pb-20 px-5">
           <div className="w-full max-w-[600px] mx-auto">
             <form onSubmit={onSearch}>

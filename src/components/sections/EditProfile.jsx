@@ -260,22 +260,20 @@ export default function EditProfileForm({ data, name }) {
                 <label htmlFor="photo" className="font-bold">
                   Profile Image
                 </label>
-                <div className="w-24 h-24 rounded-md border-[1px] border-gray-200 flex justify-center items-center">
+                <div className="w-24 h-24 rounded-md border-[1px] border-gray-200 flex justify-center items-center relative">
                   {selectedImage ? (
                     <Image
                       src={URL.createObjectURL(selectedImage)}
-                      width={80}
-                      height={80}
+                      fill
                       alt={"name"}
-                      className="rounded-full object-cover"
+                      className="rounded-full object-cover absolute inset-0"
                     />
                   ) : (
                     <Image
                       src={profile_image}
-                      width={80}
-                      height={80}
+                      fill
                       alt={"name"}
-                      className="rounded-full object-cover"
+                      className="rounded-full object-cover absolute inset-0"
                     />
                   )}
                 </div>

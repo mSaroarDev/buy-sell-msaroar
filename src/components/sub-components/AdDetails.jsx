@@ -30,7 +30,7 @@ export default function AdDetails({ data }) {
                     className="absolute inset-0 object-contain"
                   />
                 </div>
-                <div className="all-images flex gap-5 items-center justify-center my-5">
+                {/* <div className="all-images flex gap-5 items-center justify-center my-5">
                   <Image
                     src="/fitted.jpg"
                     height={100}
@@ -55,7 +55,7 @@ export default function AdDetails({ data }) {
                     width={100}
                     alt="Images"
                   />
-                </div>
+                </div> */}
                 <hr />
                 <div className="flex gap-5 mt-10 items-baseline">
                   <h3 className="text-brandColor2 font-bold text-3xl">
@@ -85,7 +85,7 @@ export default function AdDetails({ data }) {
                   <div className="mt-5 flex flex-col gap-3">
                     <div className="px-5 flex items-center gap-3">
                       <Image
-                        src={saler}
+                        src="/man.png"
                         height={30}
                         width={30}
                         alt="Sales by"

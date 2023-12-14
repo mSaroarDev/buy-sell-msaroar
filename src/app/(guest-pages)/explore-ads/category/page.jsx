@@ -11,7 +11,8 @@ export default async function FilterByCategory({searchParams}){
 
     const ads = await prisma.ads.findMany({
         where: {
-            category_id: parseInt(category)
+            category_id: parseInt(category),
+            status: "Not Sold",
         }
     })
 

@@ -18,12 +18,7 @@ export async function POST(req) {
     const { myRole } = formData;
     // console.log(formData);
 
-    if (myRole !== "User") {
-      return NextResponse.json(
-        { status: "failed", data: "user not permitted" },
-        { status: 406 }
-      );
-    } else {
+    if (myRole === "User") {
       const ad = await prisma.Ads.create({
         data: {
           product_name: formData.product_name,
@@ -49,7 +44,6 @@ export async function POST(req) {
           // created_by: 14,
         },
       });
-
       return NextResponse.json(
         { status: "success", data: ad },
         { status: 201 }

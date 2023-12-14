@@ -5,6 +5,7 @@ export default async function SideCategoryCard({ data }) {
   const totalAds = await prisma.Ads.count({
     where: {
       category_id: data?.id,
+      status: "Not Sold",
     },
   });
 

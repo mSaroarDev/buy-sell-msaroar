@@ -1,8 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import dollarBag from "public/dollarbag.svg";
 import explore from "public/explore.svg";
 
 export default function BuyandSell() {
+
   return (
     <>
       <div className="py-10">
@@ -28,7 +31,7 @@ export default function BuyandSell() {
                       Do you have something to sell? <br />
                       Post your first ad and start making money!
                     </p>
-                    <button className="btn-full flex items-center gap-x-2 mt-4">
+                    <Link href={"/user/create-ads"} className="btn-full w-fit flex items-center gap-x-2 mt-4">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -44,7 +47,7 @@ export default function BuyandSell() {
                         />
                       </svg>
                       Sell your items
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -62,7 +65,7 @@ export default function BuyandSell() {
                       Do you need to something buy? <br />
                       Get your desired product for less money!
                     </p>
-                    <button className="btn-full flex items-center gap-x-2 mt-4">
+                    <Link href={"/explore-ads"} className="btn-full w-fit flex items-center gap-x-2 mt-4">
                       Explore Items
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +81,7 @@ export default function BuyandSell() {
                           d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
                         />
                       </svg>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

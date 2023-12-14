@@ -59,7 +59,7 @@ model Categories {
 model Ads {
   id            Int    @id @default(autoincrement())
   ad_priority   String @default("Regular")
-  status        String @default("Not Sold")
+  status        String @default("Pending")
   product_name  String @db.MediumText
   description   String @db.LongText
   price         String

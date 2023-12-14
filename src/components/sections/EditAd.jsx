@@ -441,7 +441,7 @@ export default function EditAdPage({ adDetails }) {
               />
             </div>
 
-            <div className="col-span-12 lg:col-span-6">
+            {/* <div className="col-span-12 lg:col-span-6">
               <label htmlFor="name" className="font-regular text-gray-500">
                 All Images <span className="text-xs text-red-500">*</span>
               </label>{" "}
@@ -450,7 +450,7 @@ export default function EditAdPage({ adDetails }) {
                 type="file"
                 className="file-input file-input-bordered file-input-success w-full max-w-xs"
               />
-            </div>
+            </div> */}
 
             <div className="col-span-12 rounded-lg overflow-hidden w-[300px]">
               {selectedImage ? <div><img src={URL.createObjectURL(selectedImage)} /></div> : <div><img src={product_image} /></div>}

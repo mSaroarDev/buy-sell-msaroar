@@ -7,7 +7,7 @@ main {
 }
 
 .btn-1{
-    @apply bg-[#FFC800] text-[#673500] p-[14px] rounded-[4px] text-[14px] uppercase font-bold; 
+    @apply bg-[#FFC800] text-[#673500] px-4 py-3 rounded-full text-[14px] uppercase font-bold; 
 }
 
 .btn-full {

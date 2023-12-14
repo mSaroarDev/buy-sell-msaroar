@@ -3,7 +3,7 @@ import LogoBlack from "../../../public/logoblack";
 export default function Footer() {
   return (
     <>
-      <div className="bg-[#149777]/10">
+      <div className="bg-brandColor2/10">
         <main>
           <footer className="footer p-10 text-base-content">
             <aside>
