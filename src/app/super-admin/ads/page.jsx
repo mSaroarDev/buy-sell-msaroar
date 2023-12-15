@@ -4,7 +4,13 @@ import SAAdCard from "@/components/sub-components/super-admin/AdCard";
 import prisma from "@/lib/db";
 
 export default async function SAAds() {
-  const ads = await prisma.Ads.findMany();
+  const ads = await prisma.Ads.findMany({
+    where: {
+      status: {
+        not: "Deleted"
+      }
+    }
+  });
 
   // console.log(ads);
 

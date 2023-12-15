@@ -2,6 +2,7 @@
 import Link from "next/link";
 import MarkAsSoldModal from "../MarkAsSoldModal";
 import PendingButton from "./PendingButton";
+import DeleteAdButton from "./DeleteAdButton";
 
 export default function SAAdCard({data}){
     return (
@@ -24,17 +25,8 @@ export default function SAAdCard({data}){
             <div className="flex flex-nowrap gap-2 items-center justify-end text-sm p-3">
               
               <PendingButton data={data} />
-
-              <div
-                onClick={() =>
-                  document
-                    .getElementById(`my_modal_ad_delete${data?.id}`)
-                    .showModal()
-                }
-                className="h-fit w-fit px-2 py-1 cursor-pointer rounded-full bg-red-500 text-white"
-              >
-                Delete
-              </div>
+              <DeleteAdButton data={data} />
+              
             </div>
           </div>
         </div>
