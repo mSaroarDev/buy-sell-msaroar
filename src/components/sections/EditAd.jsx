@@ -4,8 +4,12 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Spinner from "../sub-components/spinner/Spinner";
+import divisions from "@/data/location/divisions";
+import districts from "@/data/location/districts";
 
 export default function EditAdPage({ adDetails }) {
+  const [selectedDivision, setSelectedDivision] = useState(null);
+
   const {
     product_name,
     description,
@@ -185,58 +189,82 @@ export default function EditAdPage({ adDetails }) {
               />
             </div>
             <div className="col-span-12 lg:col-span-4">
-              <label htmlFor="name" className="font-regular text-gray-500">
-                Division <span className="text-xs text-red-500">*</span>
-              </label>
-              <select
-                id="division"
-                name="division"
-                value={formik.values.division}
-                onChange={formik.handleChange}
-                type="text"
-                className="select select-success w-full max-w-xs"
-              >
-                <option value="" disabled>
-                  Select Division
-                </option>
-                <option value={"Dhaka"}>Dhaka</option>
-                <option value={"Rajshahi"}>Rajshahi</option>
-                <option value={"Barishal"}>Barishal</option>
-                <option value={"Chittagong"}>Chittagong</option>
-                <option value={"Khulna"}>Khulna</option>
-                <option value={"Mymensign"}>Mymensign</option>
-                <option value={"Rangpur"}>Rangpur</option>
-                <option value={"Sylhet"}>Sylhet</option>
-              </select>
-            </div>
-            <div className="col-span-12 lg:col-span-4">
-              <label htmlFor="name" className="font-regular text-gray-500">
-                District <span className="text-xs text-red-500">*</span>
-              </label>
-              <input
-                id="district"
-                name="district"
-                value={formik.values.district}
-                onChange={formik.handleChange}
-                type="text"
-                placeholder="eg: Rajshahi"
-                className="input input-bordered input-success w-full"
-              />
-            </div>
-            <div className="col-span-12 lg:col-span-4">
-              <label htmlFor="name" className="font-regular text-gray-500">
-                Sub District <span className="text-xs text-red-500">*</span>
-              </label>
-              <input
-                id="upazilla"
-                name="upazilla"
-                value={formik.values.upazilla}
-                onChange={formik.handleChange}
-                type="text"
-                placeholder="eg: Paba"
-                className="input input-bordered input-success w-full"
-              />
-            </div>
+                <label htmlFor="name" className="font-regular text-gray-500">
+                  Select Division{" "}
+                  <span className="text-xs text-red-500">*</span>
+                </label>
+                <select
+                  id="division"
+                  name="division"
+                  value={formik.values.division}
+                  onChange={(e) => {
+                    formik.handleChange(e);
+                    setSelectedDivision(e.target.value);
+                  }}
+                  type="text"
+                  className="select select-success w-full max-w-xs"
+                >
+                  <option value="" disabled>
+                    Select Division
+                  </option>
+                  {divisions.map((division) => {
+                    return (
+                      <option
+                        key={division?.id}
+                        value={division?.division_name}
+                      >
+                        {division?.division_name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <div className="col-span-12 lg:col-span-4">
+                <label htmlFor="name" className="font-regular text-gray-500">
+                  District <span className="text-xs text-red-500">*</span>
+                </label>
+                <select
+                  id="district"
+                  name="district"
+                  value={formik.values.district}
+                  onChange={formik.handleChange}
+                  type="text"
+                  className="select select-success w-full max-w-xs"
+                >
+                  <option value="" disabled>
+                    Select District
+                  </option>
+                  {selectedDivision &&
+                    districts
+                      .filter(
+                        (district) =>
+                          district.division_name === selectedDivision
+                      )
+                      .map((district) => (
+                        <option
+                          key={district?.id}
+                          value={district?.district_name}
+                        >
+                          {district?.district_name}
+                        </option>
+                      ))}
+                </select>
+              </div>
+
+              <div className="col-span-12 lg:col-span-4">
+                <label htmlFor="name" className="font-regular text-gray-500">
+                  Sub District <span className="text-xs text-red-500">*</span>
+                </label>
+                <input
+                  id="upazilla"
+                  name="upazilla"
+                  value={formik.values.upazilla}
+                  onChange={formik.handleChange}
+                  type="text"
+                  placeholder="eg: Paba"
+                  className="input input-bordered input-success w-full"
+                />
+              </div>
             {/* conditon ratio start */}
             <div className="col-span-12 lg:col-span-6">
               <label htmlFor="name" className="font-regular text-gray-500">

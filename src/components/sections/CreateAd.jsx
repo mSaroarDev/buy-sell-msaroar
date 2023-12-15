@@ -5,8 +5,11 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Spinner from "../sub-components/spinner/Spinner";
 import EditProfileButton from "../sub-components/EditProfileButton";
+import divisions from "@/data/location/divisions";
+import districts from "@/data/location/districts";
 
 export default function CreateAdPage({ data, categories }) {
+  const [selectedDivision, setSelectedDivision] = useState(null);
   const { division, district, sub_district, address } = data;
 
   const [imgUrl, setImgUrl] = useState();
@@ -179,14 +182,46 @@ export default function CreateAdPage({ data, categories }) {
                   className="input input-bordered input-success w-full"
                 />
               </div>
+
               <div className="col-span-12 lg:col-span-4">
                 <label htmlFor="name" className="font-regular text-gray-500">
-                  Division <span className="text-xs text-red-500">*</span>
+                  Select Division{" "}
+                  <span className="text-xs text-red-500">*</span>
                 </label>
                 <select
                   id="division"
                   name="division"
                   value={formik.values.division}
+                  onChange={(e) => {
+                    formik.handleChange(e);
+                    setSelectedDivision(e.target.value);
+                  }}
+                  type="text"
+                  className="select select-success w-full max-w-xs"
+                >
+                  <option value="" disabled>
+                    Select Division
+                  </option>
+                  {divisions.map((division) => {
+                    return (
+                      <option
+                        key={division?.id}
+                        value={division?.division_name}
+                      >
+                        {division?.division_name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <div className="col-span-12 lg:col-span-4">
+                <label htmlFor="name" className="font-regular text-gray-500">
+                  District <span className="text-xs text-red-500">*</span>
+                </label>
+                <select
+                  id="district"
+                  name="district"
+                  value={formik.values.district}
                   onChange={formik.handleChange}
                   type="text"
                   className="select select-success w-full max-w-xs"
@@ -194,30 +229,23 @@ export default function CreateAdPage({ data, categories }) {
                   <option value="" disabled>
                     Select Division
                   </option>
-                  <option value={"Dhaka"}>Dhaka</option>
-                  <option value={"Rajshahi"}>Rajshahi</option>
-                  <option value={"Barishal"}>Barishal</option>
-                  <option value={"Chittagong"}>Chittagong</option>
-                  <option value={"Khulna"}>Khulna</option>
-                  <option value={"Mymensign"}>Mymensign</option>
-                  <option value={"Rangpur"}>Rangpur</option>
-                  <option value={"Sylhet"}>Sylhet</option>
+                  {selectedDivision &&
+                    districts
+                      .filter(
+                        (district) =>
+                          district.division_name === selectedDivision
+                      )
+                      .map((district) => (
+                        <option
+                          key={district?.id}
+                          value={district?.district_name}
+                        >
+                          {district?.district_name}
+                        </option>
+                      ))}
                 </select>
               </div>
-              <div className="col-span-12 lg:col-span-4">
-                <label htmlFor="name" className="font-regular text-gray-500">
-                  District <span className="text-xs text-red-500">*</span>
-                </label>
-                <input
-                  id="district"
-                  name="district"
-                  value={formik.values.district}
-                  onChange={formik.handleChange}
-                  type="text"
-                  placeholder="eg: Rajshahi"
-                  className="input input-bordered input-success w-full"
-                />
-              </div>
+
               <div className="col-span-12 lg:col-span-4">
                 <label htmlFor="name" className="font-regular text-gray-500">
                   Sub District <span className="text-xs text-red-500">*</span>

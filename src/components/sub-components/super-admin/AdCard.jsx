@@ -3,6 +3,7 @@ import Link from "next/link";
 import MarkAsSoldModal from "../MarkAsSoldModal";
 import PendingButton from "./PendingButton";
 import DeleteAdButton from "./DeleteAdButton";
+import formatTimeAgo from "@/utils/convert_date";
 
 export default function SAAdCard({data}){
     return (
@@ -17,8 +18,8 @@ export default function SAAdCard({data}){
               />
             </div>
             <div className="p-2">
-              <p className="font-semibold truncate">{data?.product_name}</p>
-              <p className="text-sm text-gray-500 -mt-1">{"1 day ago"}</p>
+              <p className="font-semibold">{data?.product_name.slice(0, 40)}</p>
+              <p className="text-sm text-gray-500 -mt-1">{formatTimeAgo(data?.created_at)}</p>
             </div>
           </div>
           <div>
