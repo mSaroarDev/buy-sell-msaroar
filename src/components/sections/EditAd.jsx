@@ -41,7 +41,6 @@ export default function EditAdPage({ adDetails }) {
 
   const imageUpload = async () => {
     if (selectedImage) {
-      console.log(selectedImage);
       const data = new FormData();
       data.append("file", selectedImage);
       data.append("upload_preset", "full_stack_blog");

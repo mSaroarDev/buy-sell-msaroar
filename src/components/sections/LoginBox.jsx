@@ -12,7 +12,9 @@ export default function LoginBox() {
     <>
       <div className="w-full max-w-[800px] h-auto bg-white rounded-xl shadow-md">
         <div className="grid grid-cols-12">
-          <div className="col-span-12 lg:col-span-6 bg-brandColor2 w-full h-full rounded-l-xl hidden lg:block"></div>
+          <div className="col-span-12 lg:col-span-6 bg-currentColor w-full h-full rounded-l-xl hidden lg:block relative">
+            <Image src="/login.jpg" fill alt="Login" className="absolute inset-0 object-contain" />
+          </div>
           <div className="col-span-12 lg:col-span-6 w-full h-full p-7">
             <h2 className="text-lg font-bold uppercase mb-5">
               Login to Dashboard

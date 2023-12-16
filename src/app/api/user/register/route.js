@@ -27,8 +27,6 @@ export async function POST(req) {
       },
     });
 
-    console.log("Exist user count:", existUser);
-
     if (!name || !email || !password) {
       return NextResponse.json(
         { msg: "failed", data: "Missing required fields" },

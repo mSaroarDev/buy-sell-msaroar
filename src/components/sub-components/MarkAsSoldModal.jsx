@@ -32,8 +32,6 @@ export default function MarkAsSoldModal({ data }) {
         }
       );
 
-      console.log(res.status);
-
       if (res.status === 200) {
         setSubmitting(false);
         showSuccess("This product is marked as Sold Succesfully");

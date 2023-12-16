@@ -21,7 +21,6 @@ export default function PendingButton({ data }) {
     },
 
     onSubmit: async (values) => {
-      console.log(values);
 
       setSubmitting(true);
       const res = await fetch(

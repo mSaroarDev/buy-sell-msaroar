@@ -18,9 +18,6 @@ export const authOptions = {
 
   callbacks: {
     async signIn({ user, account }) {
-      // console.log("user", user);
-      // console.log("account", account);
-
       // storing the data to the database
       if (account.provider === "google") {
         const { name, email, image } = user;
@@ -43,9 +40,7 @@ export const authOptions = {
           if (res.ok) {
             return user;
           }
-        } catch (error) {
-          console.log(error);
-        }
+        } catch (error) {}
       }
       return user;
     },
