@@ -4,6 +4,7 @@ import prisma from "./db";
 import md5 from "md5";
 
 export const authOptions = {
+  site: process.env.NEXTAUTH_URL,
   // Configure one or more authentication providers
   providers: [
     GoogleProvider({
