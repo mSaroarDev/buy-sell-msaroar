@@ -5,6 +5,7 @@ export async function POST(req) {
   const formData = await req.json();
 
   const { name, user_id } = formData;
+  console.log("user id", user_id);
 
   try {
     const data = await prisma.User.update({

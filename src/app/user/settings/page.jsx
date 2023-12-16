@@ -20,12 +20,13 @@ export default async function Settings() {
     },
   });
 
-  // console.log(data);
+  console.log(user);
+
 
   return (
     <>
       <div className="p-5">
-        <EditProfileForm data={data} name={user?.name} />
+        <EditProfileForm data={data} name={user?.name} user={user} />
       </div>
     </>
   );

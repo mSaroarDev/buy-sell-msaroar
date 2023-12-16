@@ -112,8 +112,6 @@ export default function EditAdPage({ adDetails }) {
         showError("Failed! Something wrong.");
         setSubmitting(false);
       }
-      // console.log(values)
-      // setSubmitting(false);
     },
   });
 

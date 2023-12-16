@@ -47,6 +47,7 @@ export async function POST(req) {
           role,
           User_Profile: {
             create: {
+              email: email,
               gender,
               mobile_no,
               division,

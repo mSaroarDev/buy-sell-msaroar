@@ -32,7 +32,6 @@ export default async function SearchPage({ searchParams }) {
 
   const results = await res.json();
   const ads = results.data;
-  // console.log(results);
 
   return (
     <>

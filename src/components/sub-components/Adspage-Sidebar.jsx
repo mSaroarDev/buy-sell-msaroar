@@ -5,7 +5,6 @@ import SideCategoryCard from "./SideCategoryCard";
 export default async function AdspageSidebar() {
 
   const categories = await prisma.categories.findMany()
-  // console.log(categories);
 
   return (
     <>

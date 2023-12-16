@@ -10,7 +10,6 @@ import districts from "@/data/location/districts";
 
 export default function CreateAdPage({ data, categories }) {
   const [selectedDivision, setSelectedDivision] = useState(null);
-  const { division, district, sub_district, address } = data;
 
   const [imgUrl, setImgUrl] = useState();
   const [selectedImage, setSelectedImage] = useState(null);
@@ -96,8 +95,6 @@ export default function CreateAdPage({ data, categories }) {
         showError("Failed! Something wrong.");
         setSubmitting(false);
       }
-      // console.log(values)
-      // setSubmitting(false);
     },
   });
 
@@ -128,16 +125,16 @@ export default function CreateAdPage({ data, categories }) {
         <hr />
         {/* form */}
 
-        {division === null ||
-        district === null ||
-        sub_district === null ||
-        address === null ||
-        division === "" ||
-        district === "" ||
-        sub_district === "" ||
-        address === "" ? (
+        {data?.division === null ||
+        data?.district === null ||
+        data?.sub_district === null ||
+        data?.address === null ||
+        data?.division === "" ||
+        data?.district === "" ||
+        data?.sub_district === "" ||
+        data?.address === "" ? (
           <EditProfileButton />
-        ) : (
+        ) : data === null ? <EditProfileButton /> : (
           <form onSubmit={formik.handleSubmit} className="mt-5">
             <div className="form grid grid-cols-12 gap-5">
               <div className="col-span-12">

@@ -15,7 +15,6 @@ export default function HomeSearch() {
       router.push(`/explore-ads`);
     } else {
       router.push(`/explore-ads/search?q=${search_query}`);
-      // console.log("searched by", search_query);
     }
   };
   return (

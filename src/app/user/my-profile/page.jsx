@@ -6,7 +6,7 @@ import prisma from "@/lib/db";
 export default async function MyProfile(){
 
   const session = await getServerSession(authOptions);
-  // console.log(session);
+  console.log(session);
 
   // get user data
   const data = await prisma.User_Profile.findUnique({
@@ -26,7 +26,7 @@ export default async function MyProfile(){
     return (
       <>
       <div className="p-5">
-        <Profile data={data} name={user?.name} />
+        <Profile data={data} name={user?.name} user={user} />
       </div>
       </>
     )

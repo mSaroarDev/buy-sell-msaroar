@@ -8,7 +8,6 @@ export async function POST(req) {
   // Extract the search query from req.query
   const { searchParams } = new URL(req.url);
   const query = searchParams.get("q");
-  // console.log(query);
 
   try {
     const adResults = await prisma.Ads.findMany({

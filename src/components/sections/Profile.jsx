@@ -3,17 +3,6 @@ import Image from "next/image";
 import EditProfileButton from "../sub-components/EditProfileButton";
 
 export default function Profile({ data, name }) {
-  const {
-    email,
-    gender,
-    dob,
-    mobile_no,
-    division,
-    district,
-    sub_district,
-    address,
-    profile_image,
-  } = data;
 
   return (
     <>
@@ -22,17 +11,17 @@ export default function Profile({ data, name }) {
       </div>
       <hr />
 
-      {division === null ||
-      district === null ||
-      sub_district === null ||
-      address === null ? (
+      {data?.division === null ||
+      data?.district === null ||
+      data?.sub_district === null ||
+      data?.address === null ? (
         <EditProfileButton />
-      ) : (
+      ) : data === null ? <EditProfileButton /> : (
         <div className="flex gap-5 mt-5">
           <div>
             <div className="w-[120px] h-[120px] rounded-full overflow-hidden ring-2 ring-brandColor relative">
               <Image
-                src={profile_image}
+                src={data?.profile_image}
                 fill
                 alt={name}
                 className="absolute inset-0 object-cover"
@@ -44,14 +33,14 @@ export default function Profile({ data, name }) {
             <hr />
             <ul className="mt-3">
               <li>Name: {name}</li>
-              <li>Email: {email}</li>
-              <li>Gender: {gender}</li>
-              <li>Date of Birth: {dob}</li>
-              <li>Mobile No: {mobile_no}</li>
-              <li>Division: {division}</li>
-              <li>District: {district}</li>
-              <li>Sub District: {sub_district}</li>
-              <li>Address: {address}</li>
+              <li>Email: {data?.email}</li>
+              <li>Gender: {data?.gender}</li>
+              <li>Date of Birth: {data?.dob}</li>
+              <li>Mobile No: {data?.mobile_no}</li>
+              <li>Division: {data?.division}</li>
+              <li>District: {data?.district}</li>
+              <li>Sub District: {data?.sub_district}</li>
+              <li>Address: {data?.address}</li>
             </ul>
           </div>
         </div>

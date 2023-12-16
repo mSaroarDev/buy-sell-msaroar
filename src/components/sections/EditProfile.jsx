@@ -7,7 +7,8 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Spinner from "../sub-components/spinner/Spinner";
 
-export default function EditProfileForm({ data, name }) {
+export default function EditProfileForm({ data, name, user }) {
+  console.log(user);
   const [imgUrl, setImgUrl] = useState();
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -16,19 +17,6 @@ export default function EditProfileForm({ data, name }) {
   const router = useRouter();
   const showSuccess = (msg) => toast.success(msg);
   const showError = (msg) => toast.error(msg);
-
-  const {
-    email,
-    gender,
-    dob,
-    mobile_no,
-    division,
-    district,
-    sub_district,
-    address,
-    profile_image,
-    user_id,
-  } = data;
 
   const imageUpload = async () => {
     if (selectedImage) {
@@ -47,23 +35,23 @@ export default function EditProfileForm({ data, name }) {
       setImgUrl(res2.url);
       return res2.url;
     } else {
-      return profile_image;
+      return data?.profile_image;
     }
   };
 
   const formik = useFormik({
     initialValues: {
       name: name,
-      email: email,
-      gender: gender,
-      dob: dob,
-      mobile_no: mobile_no,
-      division: division,
-      district: district,
-      sub_district: sub_district,
-      address: address,
-      profile_image: profile_image,
-      user_id: user_id,
+      email: user?.email,
+      gender: data?.gender,
+      dob: data?.dob,
+      mobile_no: data?.mobile_no,
+      division: data?.division,
+      district: data?.district,
+      sub_district: data?.sub_district,
+      address: data?.address,
+      profile_image: data?.profile_image,
+      user_id: parseInt(user?.id),
     },
 
     onSubmit: async (values) => {
@@ -270,7 +258,7 @@ export default function EditProfileForm({ data, name }) {
                     />
                   ) : (
                     <Image
-                      src={profile_image}
+                      src={data?.profile_image}
                       fill
                       alt={"name"}
                       className="rounded-full object-cover absolute inset-0"

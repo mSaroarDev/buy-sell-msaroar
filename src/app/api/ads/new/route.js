@@ -16,7 +16,6 @@ export async function POST(req) {
   try {
     const formData = await req.json();
     const { myRole } = formData;
-    // console.log(formData);
 
     if (myRole === "User") {
       const ad = await prisma.Ads.create({
