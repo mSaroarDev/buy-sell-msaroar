@@ -11,11 +11,11 @@ export default function SAAdCard({ data }) {
       <div className="rounded-md shadow-md">
         <div className="flex flex-wrap lg:flex-nowrap items-center justify-between">
           <div className="flex flex-nowrap">
-            <div className="flex items-center gap-2 h-14 w-24 relative">
+            <div className="flex items-center overflow-hidden gap-2 h-14 w-24 rounded-full relative">
               <Image
                 src={data?.product_image}
                 fill
-                className="w-24 h-14 rounded-l-md image-full object-cover"
+                className="absolute inset-0 object-cover"
                 alt={data?.product_name}
               />
             </div>
