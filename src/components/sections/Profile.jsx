@@ -4,6 +4,8 @@ import EditProfileButton from "../sub-components/EditProfileButton";
 
 export default function Profile({ data, name }) {
 
+  console.log(data);
+
   return (
     <>
       <div className="pb-3">
@@ -11,10 +13,10 @@ export default function Profile({ data, name }) {
       </div>
       <hr />
 
-      {data?.division === null ||
-      data?.district === null ||
-      data?.sub_district === null ||
-      data?.address === null ? (
+      {data?.division === "" ||
+      data?.district === "" ||
+      data?.sub_district === "" ||
+      data?.address === "" ? (
         <EditProfileButton />
       ) : data === null ? <EditProfileButton /> : (
         <div className="flex gap-5 mt-5">

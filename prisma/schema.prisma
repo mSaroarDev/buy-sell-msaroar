@@ -29,14 +29,14 @@ model User {
 model User_Profile {
   id            Int      @id @default(autoincrement())
   email         String?  @unique
-  gender        String?
-  dob           String?
-  mobile_no     String?
-  division      String?
-  district      String?
-  sub_district  String?
-  address       String?  @db.MediumText
-  profile_image String?
+  gender        String   @default("")
+  dob           String   @default("")
+  mobile_no     String   @default("")
+  division      String   @default("")
+  district      String   @default("")
+  sub_district  String   @default("")
+  address       String   @default("")
+  profile_image String   @default("")
   user_id       Int      @unique
   created_at    DateTime @default(now())
   updated_at    DateTime @default(now()) @updatedAt

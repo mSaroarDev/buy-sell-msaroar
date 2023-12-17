@@ -1,7 +1,12 @@
 import Link from "next/link";
 import Logo from "../../../public/logo";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
-export default function Navbar() {
+export default async function Navbar() {
+
+  const session = await getServerSession(authOptions);
+
   return (
     <>
       <div className="bg-brandColor2">
@@ -74,12 +79,18 @@ export default function Navbar() {
               >
                 All ADS
               </Link>
+              {session ? <Link
+                href={"/logged"}
+                className="flex items-center gap-x-2 text-white font-medium text-[14px] uppercase"
+              >
+                My Profile
+              </Link> : 
               <Link
                 href={"/login"}
                 className="flex items-center gap-x-2 text-white font-medium text-[14px] uppercase"
               >
                 Login
-              </Link>
+              </Link>}
               <Link href={"/user/create-ads"} className="btn-1 ml-6">
                 Post Your ADS
               </Link>

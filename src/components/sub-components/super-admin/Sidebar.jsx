@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "../../../../public/logo";
+import SignOutButton from "@/components/sections/SignOut";
 
 export default function SASidebar() {
   return (
@@ -135,6 +136,7 @@ export default function SASidebar() {
               </svg>
               Settings
             </Link>
+            <SignOutButton />
           </div>
         </div>
       </div>

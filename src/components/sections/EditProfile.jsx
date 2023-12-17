@@ -8,7 +8,6 @@ import toast, { Toaster } from "react-hot-toast";
 import Spinner from "../sub-components/spinner/Spinner";
 
 export default function EditProfileForm({ data, name, user }) {
-  console.log(user);
   const [imgUrl, setImgUrl] = useState();
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -42,7 +41,7 @@ export default function EditProfileForm({ data, name, user }) {
   const formik = useFormik({
     initialValues: {
       name: name,
-      email: user?.email,
+      email: data?.email,
       gender: data?.gender,
       dob: data?.dob,
       mobile_no: data?.mobile_no,
