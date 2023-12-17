@@ -15,12 +15,12 @@ export default async function SAUserCard({ data }) {
     <>
       <div className="p-2 rounded-md border-[1px] border-brandColor2/50 flex items-center justify-between">
         <div className="flex items-center justify-start gap-2">
-          <div className="h-14 w-14 rounded-full overflow-hidden object-cover">
+          <div className="image-container h-14 w-14 rounded-full overflow-hidden object-cover relative">
             <Image
               src={userProfile?.profile_image}
-              height={56}
-              width={56}
+              fill
               alt={data?.name}
+              className="absolute inset-0 object-cover"
             />
           </div>
           <div>
