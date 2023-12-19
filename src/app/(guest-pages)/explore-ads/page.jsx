@@ -11,6 +11,9 @@ export default async function ExploreAds() {
     where: {
       status: "Not Sold",
     },
+    orderBy: {
+      id: "desc"
+    }
   });
 
   return (

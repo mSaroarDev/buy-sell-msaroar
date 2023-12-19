@@ -6,8 +6,8 @@ import { withAuth } from "next-auth/middleware";
 export default withAuth({
   callbacks: {
     authorized: ({ req, token }) => {
-      console.log("req", req);
-      console.log("token", token);
+      // console.log("req", req);
+      // console.log("token", token);
       // /admin requires admin role, but /me only requires the user to be logged in.
       return req.nextUrl.pathname !== "/admin" || token?.userRole === "admin";
     },

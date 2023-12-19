@@ -35,13 +35,14 @@ export default async function Navbar() {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Link href={"/all-ads"}>All ADS</Link>
+                    <Link href={"/explore-ads"}>All ADS</Link>
                   </li>
                   <li>
-                    <Link href={"/all-ads"}>Post Your AD</Link>
+                    <Link href={"/user/create-ads"}>Post Your AD</Link>
                   </li>
                   <li>
-                    <Link href={"/all-ads"}>My Account</Link>
+                    {session ? <Link href={"/logged"}>My Account</Link> : <Link href={"/login"}>Login</Link>}
+                    
                   </li>
                 </ul>
               </div>
