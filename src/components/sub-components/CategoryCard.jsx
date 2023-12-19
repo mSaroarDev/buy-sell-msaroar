@@ -13,7 +13,7 @@ export default async function CategoryCard({ data }) {
   return (
     <>
       <Link
-        href={`/explore-ads/category?cat_id=${data.id}&category=${data?.category_name}`}
+        href={`/explore-ads/category?cat_id=${data.id}&category=${data?.category_name}&page=1`}
       >
         <div className="w-full p-5 cursor-pointer category__card duration-300 border-[1px] border-transparent hover:border-[#FFC800]/30 rounded-lg hover:bg-white">
           <div className="flex items-center justify-between">

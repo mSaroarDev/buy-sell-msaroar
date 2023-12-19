@@ -2,6 +2,7 @@ import Ad from "@/components/sub-components/Ad";
 import AdspageSidebar from "@/components/sub-components/Adspage-Sidebar";
 import Navbar from "@/components/sub-components/Navbar";
 import SearchComponent from "@/components/sub-components/SearchComponent";
+import AdsPaginationSearchResults from "@/components/sub-components/pagginations/SearchPaggination";
 import prisma from "@/lib/db";
 import Image from "next/image";
 
@@ -13,9 +14,11 @@ export default async function SearchPage({ searchParams }) {
   // })
 
   const queryParam = searchParams.q;
+  const page_no = searchParams.page;
 
   const res = await fetch(
-    process.env.NEXT_PUBLIC_BASE_URL + `/api/ads/search?q=${queryParam}`,
+    process.env.NEXT_PUBLIC_BASE_URL +
+      `/api/ads/search?q=${queryParam}&page=${page_no}`,
     {
       method: "POST",
       headers: {
@@ -63,6 +66,13 @@ export default async function SearchPage({ searchParams }) {
                     })}
                 </div>
                 {/* ads area end */}
+
+                <div className="my-5 text-right">
+                  <AdsPaginationSearchResults
+                    totalAds={ads?.length}
+                    query={queryParam}
+                  />
+                </div>
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ export default function HomeSearch() {
     if (search_query === "") {
       router.push(`/explore-ads`);
     } else {
-      router.push(`/explore-ads/search?q=${search_query}`);
+      router.push(`/explore-ads/search?q=${search_query}&page=1`);
     }
   };
   return (

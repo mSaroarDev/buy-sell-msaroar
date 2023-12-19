@@ -18,7 +18,7 @@ export default async function AdspageSidebar() {
               {categories &&
                 categories?.map((item) => {
                   return (
-                    <Link key={item?.id} href={`/explore-ads/category?cat_id=${item.id}&category=${item?.category_name}`}>
+                    <Link key={item?.id} href={`/explore-ads/category?cat_id=${item.id}&category=${item?.category_name}&page=1`}>
                       <SideCategoryCard data={item} />
                     </Link>
                   );

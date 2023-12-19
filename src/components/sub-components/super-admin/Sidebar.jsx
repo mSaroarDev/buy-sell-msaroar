@@ -98,7 +98,7 @@ export default function SASidebar() {
             </Link>
             <Link
               className="flex items-center gap-2 px-5 py-2 hover:bg-[#1DACE3]/20 duration-150"
-              href={"/super-admin/ads"}
+              href={"/super-admin/ads?page=1"}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

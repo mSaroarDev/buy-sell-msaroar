@@ -1,10 +1,15 @@
-import Ad from "@/components/sub-components/Ad";
-import MyAdsCard from "@/components/sub-components/MyAdsCard";
+
 import SAAdCard from "@/components/sub-components/super-admin/AdCard";
+import AdsPagination from "@/components/sub-components/super-admin/AdPagination";
 import prisma from "@/lib/db";
 
-export default async function SAAds() {
+export default async function SAAds({searchParams}) {
+
+  const page_no = searchParams.page;
+
   const ads = await prisma.Ads.findMany({
+    skip: (page_no - 1) * 10,
+    take: 10,
     where: {
       status: {
         not: "Deleted"
@@ -14,6 +19,8 @@ export default async function SAAds() {
       id: "desc"
     }
   });
+
+  const totalAds = ads?.length;
 
 
   return (
@@ -28,6 +35,10 @@ export default async function SAAds() {
               </div>
             );
           })}
+      </div>
+
+      <div className="ad__pagination text-right mt-5">
+        <AdsPagination totalAds={totalAds} />
       </div>
     </>
   );

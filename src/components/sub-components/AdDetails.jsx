@@ -120,7 +120,7 @@ export default function AdDetails({ data }) {
                 </div>
 
                 {/* external ads */}
-                <div className="w-full h-full p-2 relative">
+                <div className="hidden lg:block w-full h-full p-2 relative">
                   <a href="http://teamsaroar.pw">
                     <Image src="/external-ad.png" fill className="absolute object-contain top-[20px]" alt="External Ad"/>
                   </a>

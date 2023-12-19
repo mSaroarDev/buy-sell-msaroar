@@ -35,7 +35,7 @@ export default async function Navbar() {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Link href={"/explore-ads"}>All ADS</Link>
+                    <Link href={"/explore-ads?page=1"}>All ADS</Link>
                   </li>
                   <li>
                     <Link href={"/user/create-ads"}>Post Your AD</Link>
@@ -75,7 +75,7 @@ export default async function Navbar() {
             </div>
             <div className="navbar-end hidden lg:flex gap-x-5">
               <Link
-                href={"/explore-ads"}
+                href={"/explore-ads?page=1"}
                 className="flex items-center gap-x-2 text-white font-medium text-[14px] uppercase"
               >
                 All ADS

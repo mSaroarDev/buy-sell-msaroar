@@ -5,21 +5,27 @@ import Image from "next/image";
 import searchIcon from "public/search.svg";
 import prisma from "@/lib/db";
 import SearchComponent from "@/components/sub-components/SearchComponent";
+import AdsPagination from "@/components/sub-components/super-admin/AdPagination";
+import AdsPaginationAllAds from "@/components/sub-components/pagginations/ExploreAds";
 
-export default async function ExploreAds() {
+export default async function ExploreAds({ searchParams }) {
+  const page_no = searchParams.page;
+
   const ads = await prisma.Ads.findMany({
+    skip: (page_no - 1) * 10,
+    take: 10,
     where: {
       status: "Not Sold",
     },
     orderBy: {
-      id: "desc"
-    }
+      id: "desc",
+    },
   });
 
   return (
     <div className="bg-[#f7f7f7] min-h-screen w-full">
       <Navbar />
-      <div className="my-5 px-5">
+      <div className="py-5 px-5">
         <div className="w-full max-w-4xl mx-auto bg-white rounded-lg">
           <div className="grid grid-cols-12">
             <div className="col-span-12 lg:col-span-3">
@@ -45,6 +51,10 @@ export default async function ExploreAds() {
                   })}
               </div>
               {/* ads area end */}
+
+              <div className="my-5 text-right">
+                <AdsPaginationAllAds totalAds={ads?.length} />
+              </div>
             </div>
           </div>
         </div>

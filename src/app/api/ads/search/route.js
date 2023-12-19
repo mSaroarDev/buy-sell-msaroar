@@ -8,9 +8,12 @@ export async function POST(req) {
   // Extract the search query from req.query
   const { searchParams } = new URL(req.url);
   const query = searchParams.get("q");
+  const page = searchParams.get("page");
 
   try {
     const adResults = await prisma.Ads.findMany({
+      skip: (parseInt(page) - 1) * 10,
+      take: 10,
       where: {
         OR: [
           {
