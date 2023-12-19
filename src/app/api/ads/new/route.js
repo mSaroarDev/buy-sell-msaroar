@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   const session = await getServerSession(authOptions);
+  const formData = await req.json();
 
   // get user data
   const data = await prisma.User_Profile.findUnique({
@@ -13,9 +14,16 @@ export async function POST(req) {
     },
   });
 
+  const category = await prisma.Categories.findUnique({
+    where: {
+      id: parseInt(formData.category_id),
+    },
+  });
+
   try {
-    const formData = await req.json();
     const { myRole } = formData;
+
+    const seo = `${formData.product_name}, ${formData.description}, ${formData.edition}, ${formData.features}, ${formData.brand}, ${formData.model}, ${category?.category_name}, ${formData.keywords}`;
 
     if (myRole === "User") {
       const ad = await prisma.Ads.create({
@@ -38,7 +46,7 @@ export async function POST(req) {
           division: formData.division,
           district: formData.district,
           upazilla: formData.upazilla,
-          keywords: formData.keywords,
+          keywords: seo,
           created_by: data.user_id,
           // created_by: 14,
         },

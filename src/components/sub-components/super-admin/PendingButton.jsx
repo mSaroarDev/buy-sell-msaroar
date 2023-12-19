@@ -119,7 +119,7 @@ export default function PendingButton({ data }) {
                     className="select select-success w-full max-w-xs"
                   >
                     <option value={"Pending"}>Pending</option>
-                    <option value={"Not Sold"}>Not Sold</option>
+                    <option value={"Not Sold"}>Active</option>
                     <option value={"Sold"}>Sold</option>
                     <option value={"Block"}>Block</option>
                     <option value={"Archive"}>Archive</option>

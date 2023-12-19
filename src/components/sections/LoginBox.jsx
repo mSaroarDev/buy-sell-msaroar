@@ -35,7 +35,6 @@ export default function LoginBox() {
             redirect: false,
           });
 
-          console.log(res);
 
           if (!res.ok) {
             showError("Invalid Email or Password");

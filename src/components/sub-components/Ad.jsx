@@ -18,7 +18,7 @@ export default async function Ad({ data }) {
   return (
     <>
       <Link
-        href={`/ads/details?category=${categoryNameInfo?.category_name}&ad_id=${data?.id}`}
+        href={`/ads/details?category=${categoryNameInfo?.category_name}&ad_id=${data?.id}&ad=${data?.product_name}`}
       >
         <div className="h-[120px] flex items-start justify-start gap-2 rounded-md hover:shadow-md border-[1px] border-brandColor/40 duration-300 overflow-hidden">
           <div className="w-[220px] h-[120px] relative">

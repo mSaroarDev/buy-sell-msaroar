@@ -4,7 +4,6 @@ import EditProfileButton from "../sub-components/EditProfileButton";
 
 export default function Profile({ data, name }) {
 
-  console.log(data);
 
   return (
     <>

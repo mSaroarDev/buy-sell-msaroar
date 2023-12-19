@@ -17,8 +17,6 @@ export async function POST(req) {
     user_id,
   } = formData;
 
-  console.log("id", user_id);
-
   try {
     // if (
     //   !gender ||

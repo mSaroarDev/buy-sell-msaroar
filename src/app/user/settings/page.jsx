@@ -20,7 +20,6 @@ export default async function Settings() {
     },
   });
 
-  console.log(user);
 
 
   return (
