@@ -41,6 +41,9 @@ export async function POST(req) {
         ],
         status: "Not Sold",
       },
+      orderBy: {
+        id: "desc",
+      },
     });
 
     return NextResponse.json(

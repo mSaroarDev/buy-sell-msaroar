@@ -13,6 +13,9 @@ export default async function FilterByCategory({searchParams}){
         where: {
             category_id: parseInt(category),
             status: "Not Sold",
+        },
+        orderBy: {
+          id: "desc"
         }
     })
 

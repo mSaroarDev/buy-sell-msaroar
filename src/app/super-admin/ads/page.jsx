@@ -8,7 +8,10 @@ export default async function SAAds() {
     where: {
       status: {
         not: "Deleted"
-      }
+      },
+    },
+    orderBy: {
+      id: "desc"
     }
   });
 

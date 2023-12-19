@@ -19,6 +19,9 @@ export default async function MyAds() {
     where: {
       created_by: parseInt(user?.id),
     },
+    orderBy: {
+      id: "desc"
+    }
   });
 
   return (
