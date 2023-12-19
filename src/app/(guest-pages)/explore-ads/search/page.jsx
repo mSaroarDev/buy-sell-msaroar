@@ -13,6 +13,8 @@ export default async function SearchPage({ searchParams }) {
   //     }
   // })
 
+  const totalAds = await prisma.Ads.count({})
+
   const queryParam = searchParams.q;
   const page_no = searchParams.page;
 
@@ -69,7 +71,7 @@ export default async function SearchPage({ searchParams }) {
 
                 <div className="my-5 text-right">
                   <AdsPaginationSearchResults
-                    totalAds={ads?.length}
+                    totalAds={totalAds}
                     query={queryParam}
                   />
                 </div>

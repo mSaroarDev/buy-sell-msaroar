@@ -20,7 +20,7 @@ export default async function SAAds({searchParams}) {
     }
   });
 
-  const totalAds = ads?.length;
+  const totalAds = await prisma.Ads.count({})
 
 
   return (

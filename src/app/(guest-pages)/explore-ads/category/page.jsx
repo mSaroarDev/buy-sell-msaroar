@@ -11,6 +11,8 @@ export default async function FilterByCategory({ searchParams }) {
   const category = searchParams.cat_id;
   const page_no = searchParams.page;
 
+  const totalAds = await prisma.Ads.count({})
+
   const ads = await prisma.ads.findMany({
     skip: (page_no - 1) * 10,
     take: 10,
@@ -65,7 +67,7 @@ export default async function FilterByCategory({ searchParams }) {
                 <div className="px-5 text-right">
                   <AdsPaginationCategory
                     cat={cat_name}
-                    totalAds={ads?.length}
+                    totalAds={totalAds}
                   />
                 </div>
               </div>

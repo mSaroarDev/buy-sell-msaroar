@@ -22,6 +22,8 @@ export default async function ExploreAds({ searchParams }) {
     },
   });
 
+  const totalAds = await prisma.Ads.count({})
+
   return (
     <div className="bg-[#f7f7f7] min-h-screen w-full">
       <Navbar />
@@ -53,7 +55,7 @@ export default async function ExploreAds({ searchParams }) {
               {/* ads area end */}
 
               <div className="my-5 text-right">
-                <AdsPaginationAllAds totalAds={ads?.length} />
+                <AdsPaginationAllAds totalAds={totalAds} />
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@ export default function AdsPagination({ totalAds }) {
         <Link href={"/super-admin/ads?page=1"} className={`join-item btn`}>
           «
         </Link>
-        {Math.ceil(totalAds / 10) <= 1 ? (
+        {Math.ceil(totalAds / 10) === 1 ? (
           <Link
             href={"/super-admin/ads?page=1"}
             className={`join-item btn btn-active`}
